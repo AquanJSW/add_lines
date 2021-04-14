@@ -19,7 +19,7 @@ def all_strip(it: Iterable[str]) -> List:
     for i in it:
         i = i.strip()
         if i:
-            ret.append(i + '\n')
+            ret.append(i)
     return ret
 
 
@@ -32,7 +32,7 @@ def main():
     with open(path, 'r') as fr:
         rules = all_strip(fr.readlines())
     with open(path, 'w') as fr:
-        fr.writelines(set(rules + lines))
+        fr.writelines([i + '\n' for i in set(rules + lines)])
 
 
 if __name__ == '__main__':
